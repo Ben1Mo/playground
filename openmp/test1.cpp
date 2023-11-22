@@ -24,8 +24,7 @@ int sum_double_serial(int n) {
 
 int sum_double_parallel(int n) {
   int sum = 0;
-//#pragma omp parallel for reduction(+ : sum)
-#pragma omp parallel for collapse(2)
+#pragma omp parallel for reduction(+ : sum)
   for (int i = 0; i <= n; ++i) {
     sum += i;
     //#pragma omp tasknowait
@@ -80,6 +79,9 @@ int main(int argc, char **argv) {
 
   duration<double, std::milli> ms_double4 = t2 - t1;
   std::cout << "Operation 2 (OpenMP): " << ms_double4.count() << " ms\n";
+
+  std::cout << "Accelaration: " << ms_double3.count() / ms_double4.count()
+            << "\n";
 
   return 0;
 }

@@ -15,21 +15,6 @@ from libc.stdlib cimport abort, malloc, free
 
 DEBUG=False
 
-def f(y: float) -> float:
-    """calcaulte the fraction f of y_k
-
-    Parameters
-    ----------
-    y: np.float64
-        the current y_k value
-
-    Returns
-    -------
-    float
-        the calculated y_k(+1)
-    """
-    return math.pow((1-math.pow(y, 4)), 1/4)
-
 # python implementation
 def borwein_estimate_pi() -> float:
     """estimate pi to a certain precision k
@@ -51,7 +36,7 @@ def borwein_estimate_pi() -> float:
     # now we iterate over k to calculate a more precise pi estimation
     while i < 300:
         # calcualte next y_k
-        y_k = (1 - f(y_k))/(1 + f(y_k))
+        y_k = (1 - math.pow((1-math.pow(y_k, 4)), 1/4))/(1 + math.pow((1-math.pow(y_k, 4)), 1/4))
         # calculate next a_k
         a_k = a_k*math.pow((1 + y_k), 4) - math.pow(2, (2*i)+3)*y_k*(1 + y_k + math.pow(y_k, 2))
 

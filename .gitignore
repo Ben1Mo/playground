@@ -22,5 +22,6 @@ rad.json
 TestResults.xml
 #Cython specific files
 cython/test1/*.c
+cython/test2/*.c
 *.so
 build/

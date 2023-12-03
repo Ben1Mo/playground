@@ -86,6 +86,6 @@ def opt_borwein_estimate_pi():
 
         i += 1
 
-    result = [pi for pi in pis[:100]]
+    result = [pi for pi in pis[:300]]
 
     return result

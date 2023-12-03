@@ -20,3 +20,7 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+#Cython specific files
+cython/test1/*.c
+*.so
+build/
